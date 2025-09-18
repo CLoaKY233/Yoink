@@ -1,5 +1,5 @@
 [package]
-name = "UrlShortener"
+name = "url_shortener"
 version = "0.1.0"
 edition = "2024"
 
@@ -18,3 +18,11 @@ tower-http = { version = "0.6.6", features = ["cors", "trace"] }
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.20", features = ["env-filter"] }
 url = "2.5.7"
+
+
+[profile.release]
+lto = true
+strip = true
+opt-level = 3
+panic = 'abort'
+codegen-units = 1

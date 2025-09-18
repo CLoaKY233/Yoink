@@ -1,10 +1,13 @@
 use anyhow::Result;
 use std::env;
 #[derive(Clone, Debug)]
+
 pub struct Config {
     pub database_url: String,
     pub server_address: String,
     pub base_url: String,
+    pub surreal_ns: String,
+    pub surreal_db: String,
     pub surreal_username: String,
     pub surreal_password: String,
 }
@@ -19,6 +22,8 @@ impl Config {
         let server_address =
             env::var("SERVER_ADDRESS").unwrap_or_else(|_| "0.0.0.0:3000".to_string());
         let base_url = env::var("BASE_URL").unwrap_or_else(|_| "0.0.0.0:3000".to_string());
+        let surreal_ns = env::var("SURREAL_NS").unwrap_or_else(|_| "".to_string());
+        let surreal_db = env::var("SURREAL_DB").unwrap_or_else(|_| "".to_string());
         let surreal_password = env::var("SURREAL_USERNAME").unwrap_or_else(|_| "".to_string());
         let surreal_username = env::var("SURREAL_PASSWORD").unwrap_or_else(|_| "".to_string());
 
@@ -26,6 +31,8 @@ impl Config {
             database_url,
             server_address,
             base_url,
+            surreal_ns,
+            surreal_db,
             surreal_username,
             surreal_password,
         })

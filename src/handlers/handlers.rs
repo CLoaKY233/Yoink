@@ -12,7 +12,6 @@ use axum::{
 
 use chrono::Utc;
 use std::sync::Arc;
-use tower_http::trace::OnResponse;
 use tracing::{error, info, warn};
 use url::Url;
 /// Create a new short URL
@@ -78,7 +77,7 @@ pub async fn create_short_url(
 
     let url_record = UrlRecord::new(id.clone(), payload.url.clone());
 
-    /// Insert into database
+    // Insert into database
     let result: Result<Option<UrlRecord>, _> =
         state.db.create(("urls", &id)).content(url_record).await;
 

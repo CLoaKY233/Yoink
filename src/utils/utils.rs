@@ -23,9 +23,9 @@ mod tests {
 
     #[test]
     fn test_is_valid_url() {
-        assert!(is_valid_url("<https://example.com>"));
-        assert!(is_valid_url("<http://example.com>"));
-        assert!(is_valid_url("<https://example.com/path?query=value>"));
+        assert!(is_valid_url("https://example.com"));
+        assert!(is_valid_url("http://example.com"));
+        assert!(is_valid_url("https://example.com/path?query=value"));
         assert!(!is_valid_url("not-a-url"));
         assert!(!is_valid_url(""));
     }

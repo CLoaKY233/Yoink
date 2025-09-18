@@ -24,8 +24,8 @@ impl Config {
         let base_url = env::var("BASE_URL").unwrap_or_else(|_| "0.0.0.0:3000".to_string());
         let surreal_ns = env::var("SURREAL_NS").unwrap_or_else(|_| "".to_string());
         let surreal_db = env::var("SURREAL_DB").unwrap_or_else(|_| "".to_string());
-        let surreal_password = env::var("SURREAL_USERNAME").unwrap_or_else(|_| "".to_string());
-        let surreal_username = env::var("SURREAL_PASSWORD").unwrap_or_else(|_| "".to_string());
+        let surreal_username = env::var("SURREAL_USERNAME").unwrap_or_else(|_| "".to_string());
+        let surreal_password = env::var("SURREAL_PASSWORD").unwrap_or_else(|_| "".to_string());
 
         Ok(Config {
             database_url,
